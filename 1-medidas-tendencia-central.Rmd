@@ -1,0 +1,116 @@
+---
+title: "Medidas de tendencia central"
+author:
+    name: "[Diego Ortiz Mora](https://DiegoOrtizMora.github.io)"
+    affiliation: "Taller IV 2022, [Facultad de economía](http://www.economia.unam.mx/)"
+date: "2/3/2022"
+output: html_document
+---
+
+### 1. {style="text-align: justify;"}
+
+###  {style="text-align: justify;"}
+
+> Definición: "Las **medidas de tendencia central** son **medidas** estadísticas que pretenden resumir en un solo valor a un conjunto de valores. Representan un centro en torno al cual se encuentra ubicado el conjunto de los datos"
+
+[Made wave](https://www.medwave.cl/link.cgi/Medwave/Series/MBE04/4934#:~:text=Las%20medidas%20de%20tendencia%20central,%3A%20media%2C%20mediana%20y%20moda. "Made wave")
+
+Para este ejemplo, primero generaremos una serie de **100** números aleatorios entre **1** y **20** mediante la función `sample`. El argumento `TRUE` nos permitirá generar una muestra con remplazo:
+
+```{r}
+numeros <- sample(1:20, 100, TRUE)
+numeros
+```
+
+### 2. Mediana 📍 {style="text-align: justify;"}
+
+> Definición: "Otra medida de tendencia central es la mediana. La mediana es el valor de la variable que ocupa la posición central, cuando los datos se disponen en orden de magnitud. Es decir, el 50% de las observaciones tiene valores iguales o inferiores a la mediana y el otro 50% tiene valores iguales o superiores a la mediana.\
+> "
+
+[Fuente (](https://www.google.com/ "Fuente (año)")[Medwave](https://www.medwave.cl/link.cgi/Medwave/Series/MBE04/4934 "Fuente (año)")[)](https://www.google.com/ "Fuente (año)")😏
+
+Para obtener la **mediana**, podemos ordenar los `numeros` de menor a mayor, **el número que esté en medio de la muestra será la mediana**. Si utilizamos R, se puede hacer el cálculo de la **mediana** con la función `median`:
+
+```{r}
+mediana <- median(numeros)
+mediana
+```
+
+### 3. Media 🧮 {style="text-align: justify;"}
+
+> Definición: "La medida de tendencia central más conocida y utilizada es la media aritmética o promedio aritmético. Se representa por la letra griega µ cuando se trata del promedio del universo o población y por Ȳ (léase Y barra) cuando se trata del promedio de la muestra. Es importante destacar que µ es una cantidad fija mientras que el promedio de la muestra es variable puesto que diferentes muestras extraídas de la misma población tienden a tener diferentes medias. La media se expresa en la misma unidad que los datos originales: centímetros, horas, gramos, etc."
+
+[Fuente (](https://www.google.com/ "Fuente (año)")[Medwave](https://www.medwave.cl/link.cgi/Medwave/Series/MBE04/4934 "Fuente (año)")[)](https://www.google.com/ "Fuente (año)")😏
+
+<center>
+
+$$ Media ={\frac {1}{n}}\sum _{i=1}^{n}a_{i}={\frac {a_{1}+a_{2}+\cdots +a_{n}}{n}} $$
+
+</center>
+
+$$
+x = 3y + 2
+$$
+
+Si usamos R, podemos obtener la media de una muestra si utlilizamo
+
+#####  {style="text-align: center; color: dark blue;"}
+
+> "La moda de una distribución se define como el valor de la variable que más se repite. En un polígono de frecuencia la moda corresponde al valor de la variable que está bajo el punto más alto del gráfico. Una muestra puede tener más de una moda."
+
+[Fuente (](https://www.google.com/ "Fuente (año)")[Medwave](https://www.medwave.cl/link.cgi/Medwave/Series/MBE04/4934 "Fuente (año)")[)](https://www.google.com/ "Fuente (año)")😏×D
+
+Podemos saber cuál es la **frecuencia** (número de veces que aparece un elemento en una muestra) de cada número si dibujamos un **histograma** con la función `hist`, **aquel elemento con mayor frecuencia será la moda**:
+
+```{r}
+# El argumento breaks nos permite dividir en histograma en las partes que queramos
+hist(numeros, breaks = 20)
+```
+
+Para obtener un resultado con más precisión, podemos obtener la **moda** si generamos una **tabla de frecuencias** con la función `table` y la función `data.frame`, **aquel elemento con mayor frecuencia será la moda**:
+
+```{r}
+tabla.frecuencias <- data.frame(table(numeros))
+tabla.frecuencias
+```
+
+### 5. Ejercicio 👩‍💻👨‍💻✍ {style="text-align: justify;"}
+
+Aplica lo que aprendiste, obten la **mediana**, **media** y **moda** de la siguiente muestra de números:
+
+```{r}
+# Con la función seq, creamos una secuencia de 1 a 10 en intervalos de 0.1 en 0.1
+secuencia <- seq(1, 10, 0.1)
+muestra <- sample(secuencia, 100, TRUE)
+muestra
+```
+
+### Mediana {style="text-align: center; color: blue;"}
+
+```{r}
+# Aquí el cálculo de la mediana 
+Mediana.muestra <- median(muestra)
+Mediana.muestra
+```
+
+##### Media {style="text-align: center; color: darkgreen;"}
+
+```{r}
+# Aquí el cálculo de la media
+media.muestra <- median(muestra)
+Mediana.muestra
+```
+
+##### Moda {style="text-align: center; color: red;"}
+
+```{r}
+# Aquí el cálculo de la moda
+tabla.moda <- data.frame(table(muestra))
+tabla.moda
+```
+
+<center>
+
+💻[Código disponible en RStudio Cloud](https://rstudio.cloud/project/3671022 "👩‍💻 Disponible en RStudio Cloud 👨‍💻")💻
+
+</center>
